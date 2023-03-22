@@ -22,7 +22,7 @@ export const Brand = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
   border-bottom-width: 1px;
   border-bottom-style: solid;
@@ -83,62 +83,18 @@ export const Search = styled.div`
   align-items: center;
   justify-content: center;
 
-  margin: 6.4rem 6.4rem;
+  margin: 6.4rem 6.4rem 0;
   height: 5.6rem;
   border-radius: 10px;
-  
-  
 
-  > input { 
-    width: 100%;
-    height: 5.6rem;
-    background: #232129;
-    border-radius: 10px;
-    border: none;
 
-    font-weight: 400;
-    font-size: 1.4rem;
-    line-height: 1.8rem;
-
-    color: ${({ theme }) => theme.COLORS.GRAY_300};
-    padding-left: 1.6rem;
-
-  }
-  
 `
 export const Content = styled.div`
   grid-area: content;
   background: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
-  margin: 2rem 6.4rem 0 6.4rem;
-
-  > Section {
-    > div {
-      width: 100%;
-      height: 11.2rem;
-      background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
-      padding-left: 2.2rem;
-      margin-bottom: 1.6rem;
-      border-radius: 10px;
-
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      gap: 2.9rem;
-
-      > div.tags {
-        display: flex;
-        gap: .6rem;
-      }
-        span {
-        width: 6.4rem;
-        height: 2.4rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
+  padding: 0 6.4rem;
+  overflow-y: auto;
 `
 export const NewNote = styled.button`
   grid-area: newnote;
