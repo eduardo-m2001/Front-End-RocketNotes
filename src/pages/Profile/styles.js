@@ -62,12 +62,5 @@ export const Avatar = styled.div `
     input {
       display: none;
     }
-
-    svg {
-      width: 2rem;
-      height: 2rem;
-
-      color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-    }
   }
 `
