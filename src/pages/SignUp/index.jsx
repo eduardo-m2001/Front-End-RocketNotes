@@ -31,7 +31,7 @@ export function SignUp() {
         alert("Não foi possível cadastrar")
       }
     })
-  }
+  } 
 
   return (
     <Container>
