@@ -1,4 +1,8 @@
+import { useState, useEffect } from 'react'
 import { Container, Links, Content } from './styles'
+import { useParams } from 'react-router-dom'
+
+import { api } from '../../services/api'
 
 import { Tag } from '../../components/Tag'
 import { Button } from '../../components/Button'
@@ -7,26 +11,50 @@ import { Section } from '../../components/Section'
 import { ButtonText } from '../../components/ButtonText'
 
 export function Details() {
+  const [ data, setData ] = useState(null)
+
+  useEffect(() => {
+    async function fetchNote() {
+      const response = await api.get(`/notes/${params.id}`)
+      setData(response.data)
+    }
+    fetchNote()
+  }, [])
+
+  const parms = useParams()
 
   return (
     <Container>
       <Header />
-
+    {
+      data && 
       <main>
         <Content>
          <ButtonText title="Excluir nota"/> 
 
-          <h1>Introdução ao React</h1>
+          <h1>
+            {data.title}
+          </h1>
 
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <p>
+            {data.description}
+          </p>
 
+       { data.link &&
         <Section title="Links úteis">
            <Links>
-             <li><a href="#">https://www.rocketseat.com.br</a></li>
-             <li><a href="#">https://www.rocketseat.com.br</a></li>
+             {
+              data.links.map(link => (
+                <li key={String(link.id)}>
+                  <a href={link.url}>
+                    {link.url}
+                  </a>
+                </li>
+              ))
+             }
            </Links>
          </Section>
-
+        }
 
          <Section title="Marcadores">
            <Tag title="express" />
@@ -37,6 +65,8 @@ export function Details() {
 
       </Content>
       </main>
+
+    }
 
     </Container>
   )

@@ -42,39 +42,22 @@ export const Brand = styled.div`
 export const Menu = styled.ul`
   grid-area: menu;
   background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 5rem;
+  gap: 2rem;
 
-  > ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2.4rem;
-
-    list-style: none;
-    margin-top: 6.4rem;
-
-  }
 
   > li {
+    list-style: none;
     font-weight: 400;
-    font-size: 1.6rem;
+
     line-height: 2.1rem;
 
     color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
     
   }
-
-    a {
-      color: ${({ theme }) => theme.COLORS.GRAY_100};
-
-      text-decoration: none;
-    }
-
-    li:first-child {
-        a {
-          color: ${({ theme }) => theme.COLORS.ORANGE};
-        }
-    }
 
 
 `
